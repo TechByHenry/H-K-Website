@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>6 months ♡</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+ 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+ 
+body {
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+}
+ 
+/* ── each section gets its own color, fades at the bottom into next ── */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem 8rem;
+  text-align: center;
+}
+ 
+section:last-child {
+  -webkit-mask-image: none;
+  mask-image: none;
+  padding-bottom: 4rem;
+}
+ 
+#hero     { background: #fdf0e8; color: #3a2218; }
+#her      { background: #fde8e4; color: #3a1a18; }
+#me       { background: #1e1e1e; color: #f5ece4; }
+#timeline { background: #eef0e6; color: #252820; }
+ 
+/* ── hero ── */
+#hero h1 {
+  font-size: clamp(2.8rem, 10vw, 5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+#hero p {
+  font-size: 1.3rem;
+  opacity: 0.55;
+}
+ 
+/* ── heart + photos ── */
+.heart-wrap {
+  position: relative;
+  width: min(420px, 85vw);
+  aspect-ratio: 1 / 0.92;
+  margin-bottom: 1.5rem;
+}
+ 
+.heart-wrap svg {
+  position: absolute;
+  inset: 0; width: 100%; height: 100%;
+}
+ 
+#her  .heart-wrap svg path { fill: #e8826e; }
+#me   .heart-wrap svg path { fill: #2e2e2e; }
+ 
+.heart-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -46%);
+  width: 52%;
+}
+.heart-text h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.heart-text p {
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  color: #fff;
+  opacity: 0.8;
+  line-height: 1.55;
+}
+ 
+/* scattered photos */
+.p-photo {
+  position: absolute;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.15);
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+.p-photo:hover { transform: var(--h) scale(1.07) !important; }
+.p-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.p-photo .ph {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; opacity: 0.4;
+}
+ 
+.p-photo:nth-child(3) { width:22%; aspect-ratio:3/4; top:-3%; left:-10%; transform:rotate(-8deg); --h:rotate(-4deg); }
+.p-photo:nth-child(4) { width:24%; aspect-ratio:4/3; top:3%;  right:-10%; transform:rotate(6deg);  --h:rotate(3deg);  }
+.p-photo:nth-child(5) { width:18%; aspect-ratio:3/4; top:44%; left:-12%; transform:translateY(-50%) rotate(-5deg); --h:translateY(-50%) rotate(-2deg); }
+.p-photo:nth-child(6) { width:18%; aspect-ratio:3/4; top:44%; right:-12%; transform:translateY(-50%) rotate(5deg); --h:translateY(-50%) rotate(2deg); }
+.p-photo:nth-child(7) { width:22%; aspect-ratio:1;   bottom:-3%; left:50%; transform:translateX(-50%) rotate(-3deg); --h:translateX(-50%) rotate(-1deg); }
+ 
+/* ── timeline ── */
+#timeline { justify-content: flex-start; padding-top: 5rem; }
+ 
+#timeline h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+#timeline > p {
+  opacity: 0.45;
+  margin-bottom: 3rem;
+}
+ 
+.tl {
+  width: min(600px, 90vw);
+  text-align: left;
+  padding-left: 1.8rem;
+  position: relative;
+}
+.tl::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+  background: currentColor; opacity: 0.2;
+}
+ 
+.tl-item { position: relative; margin-bottom: 3rem; }
+.tl-item::before {
+  content: '♡';
+  position: absolute; left: -2rem; top: 2px;
+  font-size: 0.8rem; opacity: 0.5;
+}
+.tl-item h3 { font-size: 1.5rem; font-weight: 600; }
+.tl-item .date { font-size: 1rem; opacity: 0.4; margin-bottom: 0.2rem; }
+.tl-item p { font-size: 1rem; opacity: 0.65; line-height: 1.55; margin-bottom: 0.8rem; max-width: 460px; }
+ 
+.tl-photos { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.t-photo {
+  width: 90px; height: 90px;
+  border-radius: 4px; overflow: hidden;
+  background: #d8d5c8; position: relative;
+  box-shadow: 1px 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.3s;
+}
+.t-photo:hover { transform: scale(1.08) rotate(2deg); }
+.t-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.t-photo .ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; opacity: 0.4; }
+ 
+</style>
+</head>
+<body>
+ 
+<!-- HERO -->
+<section id="hero">
+  <h1>
+    Six Months with You ♡
+  </h1>
+  <p>Yet you're still my favourite person.</p>
+</section>
+ 
+<!-- HER -->
+<section id="her">
+  <div class="heart-wrap">
+    <svg viewBox="0 0 200 185" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 168 C100 168 8 108 8 54 C8 27 30 8 54 8 C70 8 87 18 100 34 C113 18 130 8 146 8 C170 8 192 27 192 54 C192 108 100 168 100 168Z"/>
+    </svg>
+    <div class="heart-text">
+      <h2>Katelyn</h2>
+      <p>The kindest, smartest, and most beautiful girl you will ever meet. Always make's you feel welcomed and loved. Not only is her personality amazing, but her looks are through the roof.</p>
+    </div>
+    <!-- ✏️ replace src="" with your photo paths -->
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+  </div>
+</section>
+ 
+<!-- ME -->
+<section id="me">
+  <div class="heart-wrap">
+    <svg viewBox="0 0 200 185" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 168 C100 168 8 108 8 54 C8 27 30 8 54 8 C70 8 87 18 100 34 C113 18 130 8 146 8 C170 8 192 27 192 54 C192 108 100 168 100 168Z"/>
+    </svg>
+    <div class="heart-text">
+      <h2>Henry</h2>
+      <p>Mega-nerd that got really lucky to meet such an amazing girl. He constantly strives to improve himself because his amazing girlfriend deserves the world.</p>
+    </div>
+    <!-- ✏️ replace src="" with your photo paths -->
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+    <div class="p-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+  </div>
+</section>
+ 
+<!-- TIMELINE -->
+<section id="timeline">
+  <h2>our story ♡</h2>
+  <p>the moments that matter</p>
+ 
+  <div class="tl">
+ 
+ 
+    <div class="tl-item">
+      <div class="date">September 12, 2025</div>
+      <h3>how it started</h3>
+      <p>Playing 20 questions and truth or dare, finally revealed our feelings for each other. I slowly got more and more attached to her, the more I learnt about her.</p>
+      <div class="tl-photos">
+        <div class="t-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+        <div class="t-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+      </div>
+    </div>
+ 
+    <div class="tl-item">
+      <div class="date">September 16th, 2025</div>
+      <h3>first "date"</h3>
+      <p>Skipped drone soccer and went to the park. We laid together for around 30 minutes, just pondering how we already met our soulmates.</p>
+      <div class="tl-photos">
+        <div class="t-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+        <div class="t-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+      </div>
+    </div>
+ 
+    <div class="tl-item">
+      <div class="date">September 16th, 2025</div>
+      <h3>first kiss</h3>
+      <p>Talked about kissing way too much during the "date," right when she had to go, she kissed me on the cheek (we both missed). We then walked off, circled back and had our first kiss.</p>
+      <div class="tl-photos">
+        <div class="t-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+        <div class="t-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+      </div>
+    </div>
+ 
+    <div class="tl-item">
+      <div class="date">November or December</div>
+      <h3>the begining of our intimacy</h3>
+      <p>Mentioned 6-7, said the brainrot was eating you alive. I asked, "Is my name brainrot?" and boom. It slowly evolved overtime to something beautiful (and we made outtt).</p>
+      <div class="tl-photos">
+        <div class="t-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+        <div class="t-photo"><img src="" onerror="this.style.display='none'"/><div class="ph">📷</div></div>
+      </div>
+    </div>
+ 
+    <div class="tl-item">
+      <div class="date">today ♡</div>
+      <h3>six months</h3>
+      <p>Cheers to everything we've built, and everything still ahead. i love you even more than i did then.</p>
+    </div>
+ 
+  </div>
+</section>
+ 
+</body>
+</html>
